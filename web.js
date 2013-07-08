@@ -9,8 +9,9 @@ app.get('/', function(request, response) {
   fs.readFile('./index.html', function (err, data) {
     if (err) throw err;
     console.log(data);
-    response.send(buf.toString('utf8', 0, 256));
+    buf.write(data);
   });
+  buf.toString('utf-8')
 });
 
 var port = process.env.PORT || 5000;
